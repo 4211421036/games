@@ -35,10 +35,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
     // Mute toggle
     muteToggle.addEventListener('change', function() {
-        Enjine.Resources.Muted = this.checked;
-        if(Enjine.Resources.Muted) {
-            Enjine.Resources.StopAllSounds();
-        }
+        Enjine.Resources.SetMute(this.checked);
     });
 
     // Swipe handling for mobile
