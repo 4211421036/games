@@ -29,3 +29,10 @@ Enjine.GameCanvas.prototype = {
         this.Context2D.drawImage(this.BackBuffer, 0, 0, this.BackBuffer.width, this.BackBuffer.height, 0, 0, this.Canvas.width, this.Canvas.height);
     }
 };
+
+Enjine.Resources.Muted = false;
+Enjine.Resources.PlaySound = function(sound) {
+    if(!this.Muted) {
+        // Existing sound playing code
+    }
+}
