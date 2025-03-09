@@ -2,12 +2,80 @@
 <html>
 	<head>
 		<title>Infinite Mario - JavaScript</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
         <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+	<style>
+	    * {
+	        margin: 0;
+	        padding: 0;
+	        overflow: hidden;
+	    }
+	    canvas {
+	        width: 100vw;
+	        height: 100vh;
+	        display: block;
+	    }
+	    #settingsBtn {
+	        position: fixed;
+	        top: 10px;
+	        right: 10px;
+	        padding: 10px;
+	        background: rgba(0,0,0,0.7);
+	        color: white;
+	        border: none;
+	        border-radius: 5px;
+	        cursor: pointer;
+	        z-index: 1000;
+	    }
+	    .modal {
+	        position: fixed;
+	        top: 50%;
+	        left: 50%;
+	        transform: translate(-50%, -50%);
+	        background: rgba(0,0,0,0.9);
+	        color: white;
+	        padding: 20px;
+	        border-radius: 10px;
+	        max-width: 90%;
+	        max-height: 90vh;
+	        overflow-y: auto;
+	        display: none;
+	        z-index: 1001;
+	    }
+	    .modal-content {
+	        min-width: 300px;
+	    }
+	    .close {
+	        position: absolute;
+	        top: 10px;
+	        right: 10px;
+	        cursor: pointer;
+	    }
+	</style>
 	</head>
 	<body>
 		<canvas id="canvas" width="640" height="480">
 			<p>Your browser does not support the canvas element.</p>
 		</canvas>
+		<button id="settingsBtn">⚙️ Settings</button>
+<div id="settingsModal" class="modal">
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <h2>Game Settings</h2>
+        <div class="setting-item">
+            <label>
+                <input type="checkbox" id="muteToggle"> Mute Sound
+            </label>
+        </div>
+        <h3>Controls:</h3>
+        <ul>
+            <li>← → : Move</li>
+            <li>A : Run/Jump</li>
+            <li>S : Duck/Slide</li>
+            <li>Space : Fireball</li>
+        </ul>
+    </div>
+</div>
 
         <!-- Enjine Includes -->
         <script src="Enjine/core.js"></script>
@@ -57,6 +125,7 @@
         <script src="code/levelState.js"></script>
 
         <script src="code/music.js"></script>
+		<script src="code/settings.js"></script>
 
         <script>$(document).ready(function() { new Enjine.Application().Initialize(new Mario.LoadingState(), 320, 240) });</script>
 	</body>
