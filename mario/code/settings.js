@@ -11,10 +11,40 @@ document.addEventListener("DOMContentLoaded", function() {
     resizeCanvas();
 
     // Modal handling
-    const modal = document.getElementById('settingsModal');
-    const btn = document.getElementById('settingsBtn');
-    const span = document.getElementsByClassName("close")[0];
-    const muteToggle = document.getElementById('muteToggle');
+    const modal = document.getElementById("settingsModal");
+    const settingsBtn = document.getElementById("settingsBtn");
+    const closeBtn = document.querySelector(".close");
+    const closeSettingsBtn = document.getElementById("closeSettings");
+    const muteToggle = document.getElementById("muteToggle");
+
+    // Buka modal saat tombol settings diklik
+    settingsBtn.addEventListener("click", function() {
+        modal.style.display = "block";
+    });
+
+    // Tutup modal saat tombol close diklik
+    closeBtn.addEventListener("click", function() {
+        modal.style.display = "none";
+    });
+
+    closeSettingsBtn.addEventListener("click", function() {
+        modal.style.display = "none";
+    });
+
+    // Tutup modal saat klik di luar modal
+    window.addEventListener("click", function(event) {
+        if (event.target === modal) {
+            modal.style.display = "none";
+        }
+    });
+
+    // Handle mute toggle
+    muteToggle.addEventListener("change", function() {
+        Enjine.Resources.SetMute(this.checked);
+    });
+
+    // Set nilai awal mute toggle
+    muteToggle.checked = Enjine.Resources.Muted;
 
     // Set nilai awal checkbox berdasarkan status mute
     muteToggle.checked = Enjine.Resources.Muted;
@@ -35,11 +65,6 @@ document.addEventListener("DOMContentLoaded", function() {
             modal.style.display = "none";
         }
     }
-    
-    // Tambahkan event listener untuk toggle mute
-    muteToggle.addEventListener("change", function() {
-        Enjine.Resources.SetMute(this.checked); // Aktifkan/matikan mute berdasarkan checkbox
-    });
     
     // Swipe handling for mobile
     let startY = 0;
