@@ -1,7 +1,7 @@
 Enjine.Resources = {
     Images: {},
     Sounds: {},
-    Muted: false, // Tambahkan properti Muted
+    Muted: false, // Properti untuk mengontrol mute
 
     Destroy: function() {
         delete this.Images;
@@ -116,7 +116,7 @@ Enjine.Resources = {
         this.play();
     },
 
-    // Tambahkan fungsi untuk mengatur mute
+    // Fungsi untuk mengatur mute
     SetMute: function(mute) {
         this.Muted = mute;
         if (mute) {
@@ -124,7 +124,7 @@ Enjine.Resources = {
         }
     },
 
-    // Tambahkan fungsi untuk menghentikan semua suara
+    // Fungsi untuk menghentikan semua suara
     StopAllSounds: function() {
         for (var sound in this.Sounds) {
             if (this.Sounds[sound]) {
