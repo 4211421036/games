@@ -30,6 +30,7 @@ Mario.BackgroundRenderer.prototype.Draw = function(context, camera) {
             
             //bitshifting by five is the same as multiplying by 32
             context.drawImage(Enjine.Resources.Images["background"], frame.X, frame.Y, frame.Width, frame.Height, ((x << 5) - xCam) | 0, (y << 5) | 0, frame.Width, frame.Height);
+	    context.scale(window.devicePixelRatio, window.devicePixelRatio);
         }
     }
 };
