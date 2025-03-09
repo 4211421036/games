@@ -49,16 +49,6 @@ document.addEventListener("DOMContentLoaded", function() {
     // Set nilai awal checkbox berdasarkan status mute
     muteToggle.checked = Enjine.Resources.Muted;
 
-    // Open modal
-    btn.onclick = function() {
-        modal.style.display = "block";
-    }
-
-    // Close modal
-    span.onclick = function() {
-        modal.style.display = "none";
-    }
-
     // Close when clicking outside
     window.onclick = function(event) {
         if (event.target == modal) {
