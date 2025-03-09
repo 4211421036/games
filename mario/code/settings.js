@@ -33,11 +33,10 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     }
 
-    // Mute toggle
-    muteToggle.addEventListener('change', function() {
-        Enjine.Resources.SetMute(this.checked);
+    muteToggle.addEventListener("change", function() {
+        Enjine.Resources.SetMute(this.checked); // Pastikan Enjine.Resources sudah didefinisikan
     });
-
+    
     // Swipe handling for mobile
     let startY = 0;
     modal.addEventListener('touchstart', function(e) {
