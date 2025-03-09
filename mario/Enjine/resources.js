@@ -66,7 +66,7 @@ Enjine.Resources = {
     PlaySound: function(name, loop) {
         if (this.Muted) return; // Jangan mainkan suara jika muted
         if (!this.Sounds[name]) return; // Pastikan suara ada
-
+    
         if (this.Sounds[name].index >= this.Sounds[name].length) {
             this.Sounds[name].index = 0;    
         }
