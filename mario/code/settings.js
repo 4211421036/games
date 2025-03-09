@@ -16,6 +16,9 @@ document.addEventListener("DOMContentLoaded", function() {
     const span = document.getElementsByClassName("close")[0];
     const muteToggle = document.getElementById('muteToggle');
 
+    // Set nilai awal checkbox berdasarkan status mute
+    muteToggle.checked = Enjine.Resources.Muted;
+
     // Open modal
     btn.onclick = function() {
         modal.style.display = "block";
@@ -32,9 +35,10 @@ document.addEventListener("DOMContentLoaded", function() {
             modal.style.display = "none";
         }
     }
-
+    
+    // Tambahkan event listener untuk toggle mute
     muteToggle.addEventListener("change", function() {
-        Enjine.Resources.SetMute(this.checked); // Pastikan Enjine.Resources sudah didefinisikan
+        Enjine.Resources.SetMute(this.checked); // Aktifkan/matikan mute berdasarkan checkbox
     });
     
     // Swipe handling for mobile
